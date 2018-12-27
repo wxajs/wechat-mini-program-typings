@@ -1,0 +1,14 @@
+{
+  "name": "spider",
+  "version": "1.0.0",
+  "description": "test spider",
+  "main": "index.js",
+  "author": "genuifx",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "mkdirp": "^0.5.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  }
+}
