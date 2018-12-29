@@ -6,7 +6,13 @@
   "author": "genuifx",
   "license": "MIT",
   "dependencies": {
+    "babel-eslint": "^10.0.1",
     "cheerio": "^1.0.0-rc.2",
+    "debug": "^4.1.1",
+    "eslint": "^5.11.1",
+    "eslint-config-esnext": "^4.0.0",
+    "eslint-config-google": "^0.11.0",
+    "eslint-plugin-node": "^8.0.0",
     "mkdirp": "^0.5.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5"
