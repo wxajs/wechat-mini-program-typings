@@ -283,7 +283,7 @@ const fetchApi = async (api)=>{
       typing.returns = {};
       const $returnEl = $md.children('h4#返回值 + h5');
 
-      const p = $returnEl.text().split('.');
+      const p = $returnEl.text().split(' ');
       if (p.length > 1) {
         typing.returns.name = $returnEl.text();
         typing.returns.type = p[0];
@@ -293,17 +293,27 @@ const fetchApi = async (api)=>{
 
         if ($body.is('table')) {
           typing.returns.fields = [];
+          const th = $body.find('thead > tr > th').map((idx, el)=>$(el).text()).get();
 
-          $body.find('tbody > tr').each((idx, tr)=>{
-            const field = $(tr).children('td').map((idx, el)=>$(el).text());
+          $body.find('tbody > tr').each((idx, el)=>{
+            const field = $(el).children('td').map((idx, el)=>$(el).text()).get();
 
-            typing.returns.fields.push({
-              name: field[0],
-              type: field[1],
-              desc: field[2],
-              version: field[3],
-            });
+            typing.returns.fields.push(th.reduce((ret, cur, idx)=>{
+              ret[fieldMap[cur]] = field[idx];
+              return ret;
+            }, {}));
           });
+
+          // $body.find('tbody > tr').each((idx, tr)=>{
+          //   const field = $(tr).children('td').map((idx, el)=>$(el).text());
+
+          //   typing.returns.fields.push({
+          //     name: field[0],
+          //     type: field[1],
+          //     desc: field[2],
+          //     version: field[3],
+          //   });
+          // });
         }
       } else {
         typing.returns.type = $returnEl.text();
@@ -324,6 +334,7 @@ const start = async ()=>{
   // await fetchApi(index[0].children[0]);
   // await fetchApi(index[0].children[1]);
   // await fetchApi(index.find((ns)=>ns.name==='wx').children.find((item)=>item.href==='wx.onAppShow.html'));
+  // await fetchApi(index.find((ns)=>ns.name==='wx').children.find((item)=>item.href==='wx.getSystemInfoSync.html'));
   // await fetchApi(index.find((ns)=>ns.name==='wx').children.find((item)=>item.href==='wx.showToast.html'));
   // await fetchApi(index.find((ns)=>ns.name==='wx').children.find((item)=>item.href==='wx.setNavigationBarColor.html'));
   // await fetchApi(index.find((ns)=>ns.name==='wx').children.find((item)=>item.href==='wx.createAnimation.html'));

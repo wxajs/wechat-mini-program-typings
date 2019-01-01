@@ -34,8 +34,100 @@
                     "apiDesc": "\n            Object wx.getSystemInfoSync()\n            \n            wx.getSystemInfo 的同步版本\n        ",
                     "params": [],
                     "returns": {
-                        "type": "Object res",
-                        "desc": ""
+                        "name": "res",
+                        "type": "Object",
+                        "fields": [
+                            {
+                                "name": "brand",
+                                "type": "string",
+                                "desc": "手机品牌",
+                                "version": "1.5.0"
+                            },
+                            {
+                                "name": "model",
+                                "type": "string",
+                                "desc": "手机型号",
+                                "version": ""
+                            },
+                            {
+                                "name": "pixelRatio",
+                                "type": "number",
+                                "desc": "设备像素比",
+                                "version": ""
+                            },
+                            {
+                                "name": "screenWidth",
+                                "type": "number",
+                                "desc": "屏幕宽度",
+                                "version": "1.1.0"
+                            },
+                            {
+                                "name": "screenHeight",
+                                "type": "number",
+                                "desc": "屏幕高度",
+                                "version": "1.1.0"
+                            },
+                            {
+                                "name": "windowWidth",
+                                "type": "number",
+                                "desc": "可使用窗口宽度",
+                                "version": ""
+                            },
+                            {
+                                "name": "windowHeight",
+                                "type": "number",
+                                "desc": "可使用窗口高度",
+                                "version": ""
+                            },
+                            {
+                                "name": "statusBarHeight",
+                                "type": "number",
+                                "desc": "状态栏的高度",
+                                "version": "1.9.0"
+                            },
+                            {
+                                "name": "language",
+                                "type": "string",
+                                "desc": "微信设置的语言",
+                                "version": ""
+                            },
+                            {
+                                "name": "version",
+                                "type": "string",
+                                "desc": "微信版本号",
+                                "version": ""
+                            },
+                            {
+                                "name": "system",
+                                "type": "string",
+                                "desc": "操作系统版本",
+                                "version": ""
+                            },
+                            {
+                                "name": "platform",
+                                "type": "string",
+                                "desc": "客户端平台",
+                                "version": ""
+                            },
+                            {
+                                "name": "fontSizeSetting",
+                                "type": "number",
+                                "desc": "用户字体大小设置。以“我-设置-通用-字体大小”中的设置为准，单位 px。",
+                                "version": "1.5.0"
+                            },
+                            {
+                                "name": "SDKVersion",
+                                "type": "string",
+                                "desc": "客户端基础库版本",
+                                "version": "1.1.0"
+                            },
+                            {
+                                "name": "benchmarkLevel",
+                                "type": "number",
+                                "desc": "(仅Android小游戏) 性能等级，-2 或 0：该设备无法运行小游戏，-1：性能未知，>=1 设备性能值，该值越高，设备性能越好 (目前设备最高不到50)",
+                                "version": "1.8.0"
+                            }
+                        ]
                     }
                 }
             },
@@ -3690,8 +3782,28 @@
                     "apiDesc": "\n            Object wx.getStorageInfoSync()\n            \n            wx.getStorageInfo 的同步版本\n        ",
                     "params": [],
                     "returns": {
-                        "type": "Object object",
-                        "desc": ""
+                        "name": "object",
+                        "type": "Object",
+                        "fields": [
+                            {
+                                "name": "keys",
+                                "type": "Array.<string>",
+                                "desc": "当前 storage 中所有的 key",
+                                "version": ""
+                            },
+                            {
+                                "name": "currentSize",
+                                "type": "number",
+                                "desc": "当前占用的空间大小, 单位 KB",
+                                "version": ""
+                            },
+                            {
+                                "name": "limitSize",
+                                "type": "number",
+                                "desc": "限制的空间大小，单位 KB",
+                                "version": ""
+                            }
+                        ]
                     }
                 }
             },
@@ -4004,8 +4116,8 @@
                         }
                     ],
                     "returns": {
-                        "type": "any data",
-                        "desc": "key对应的内容"
+                        "name": "data",
+                        "type": "any"
                     }
                 }
             },
@@ -9486,8 +9598,22 @@
                     "apiDesc": "\n            Object wx.getBatteryInfoSync()\n            \n            wx.getBatteryInfo 的同步版本\n        ",
                     "params": [],
                     "returns": {
-                        "type": "Object res",
-                        "desc": ""
+                        "name": "res",
+                        "type": "Object",
+                        "fields": [
+                            {
+                                "name": "level",
+                                "type": "string",
+                                "desc": "设备电量，范围 1 - 100",
+                                "version": ""
+                            },
+                            {
+                                "name": "isCharging",
+                                "type": "boolean",
+                                "desc": "是否正在充电中",
+                                "version": ""
+                            }
+                        ]
                     }
                 }
             },
@@ -13137,8 +13263,8 @@
                     "apiDesc": "\n            Array.<Object> Animation.export()\n            \n            导出动画队列。export 方法每次调用后会清掉之前的动画操作。\n        ",
                     "params": [],
                     "returns": {
-                        "name": "<Object>",
-                        "type": "Array"
+                        "type": "Array.<Object>",
+                        "desc": "animationData"
                     }
                 }
             },
@@ -19297,8 +19423,8 @@
                         }
                     ],
                     "returns": {
-                        "type": "number savedFilePath",
-                        "desc": "存储后的文件路径"
+                        "name": "savedFilePath",
+                        "type": "number"
                     }
                 }
             },
@@ -19923,8 +20049,8 @@
                         }
                     ],
                     "returns": {
-                        "type": "string|ArrayBuffer data",
-                        "desc": "文件内容"
+                        "name": "data",
+                        "type": "string|ArrayBuffer"
                     }
                 }
             },
@@ -20040,8 +20166,8 @@
                         }
                     ],
                     "returns": {
-                        "name": "<string> files",
-                        "type": "Array"
+                        "name": "files",
+                        "type": "Array.<string>"
                     }
                 }
             },
@@ -20394,8 +20520,8 @@
                         }
                     ],
                     "returns": {
-                        "type": "Stats|Object stats",
-                        "desc": "当 recursive 为 false 时，res.stats 是一个 Stats 对象。当 recursive 为 true 且 path 是一个目录的路径时，res.stats 是一个 Object，key 以 path 为根路径的相对路径，value 是该路径对应的 Stats 对象。"
+                        "name": "stats",
+                        "type": "Stats|Object"
                     }
                 }
             },
